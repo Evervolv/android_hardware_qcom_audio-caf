@@ -134,6 +134,7 @@ LOCAL_SHARED_LIBRARIES := \
     libbase \
     liblog \
     libcutils \
+    libhardware \
     libtinyalsa \
     libtinycompress \
     libaudioroute \
@@ -151,6 +152,7 @@ LOCAL_C_INCLUDES += \
     external/tinycompress/include \
     system/media/audio_utils/include \
     external/expat/lib \
+    hardware/libhardware/include \
     vendor/qcom/opensource/core-utils/fwk-detect \
     $(call include-path-for, audio-route) \
     $(call include-path-for, audio-effects) \
@@ -334,6 +336,11 @@ endif
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_AHAL_EXT)),true)
     LOCAL_CFLAGS += -DAHAL_EXT_ENABLED
     LOCAL_SHARED_LIBRARIES += vendor.qti.hardware.audiohalext@1.0
+endif
+
+ifneq ($(strip $(AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER)),false)
+    LOCAL_CFLAGS += -DEXT_AMPLIFIER_ENABLED
+    LOCAL_SRC_FILES += audio_extn/audio_amplifier.c
 endif
 
 LOCAL_CFLAGS += -D_GNU_SOURCE
