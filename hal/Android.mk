@@ -318,7 +318,7 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_BT_HAL)),true)
     LOCAL_SRC_FILES += audio_extn/bt_hal.c
 endif
 
-ifeq ($(strip $(USE_LIB_PROCESS_GROUP)),true)
+ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 29; echo $$?),0)
 LOCAL_SHARED_LIBRARIES := \
         liblog \
         libcutils \
