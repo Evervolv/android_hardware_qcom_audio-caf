@@ -71,6 +71,5 @@ int main(int argc, char *argv[]) {
     usleep(25000);
   }
   VERIFY_EPRINTF("audio adsp daemon exiting %x", nErr);
-bail:
   return nErr;
 }
