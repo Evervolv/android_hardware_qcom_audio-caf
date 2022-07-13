@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2020, 2022, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -703,6 +703,11 @@ enum {
 #define HFP_ASM_RX_TX 18
 #define HFP_SEC_SCO_RX -1
 #define HFP_SEC_ASM_RX_TX -1
+#elif PLATFORM_MSMSTEPPE
+#define HFP_SCO_RX 12
+#define HFP_ASM_RX_TX 37
+#define HFP_SEC_SCO_RX -1
+#define HFP_SEC_ASM_RX_TX -1
 #else
 #define HFP_SCO_RX 23
 #define HFP_ASM_RX_TX 24
@@ -760,6 +765,7 @@ enum {
 #define TX_VOICE_FLUENCE_SM_SB 0x10F38
 #define TX_VOICE_FLUENCE_MM_SB 0x10F39
 #define TX_VOICE_FLUENCE_SM_NN 0x10B0F
+#define TX_VOICE_FLUENCEV5_SM 0x10F32
 
 /* multi-mic surround ECNS zone control */
 #define TOPOLOGY_ID_MM_HFP_ECNS 0x1FFF0002
